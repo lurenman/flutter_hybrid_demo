@@ -1,0 +1,24 @@
+//pluginManagement {
+//    repositories {
+//        google()
+//        mavenCentral()
+//        gradlePluginPortal()
+//    }
+//}
+//dependencyResolutionManagement {
+//    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+//    repositories {
+//        google()
+//        mavenCentral()
+//    }
+//}
+
+rootProject.name = "native_project_android"
+include ':app'
+setBinding(new Binding([gradle:this]))
+evaluate(new File(
+        settingsDir.parentFile,
+        'flutter_module_john/.android/include_flutter.groovy'
+))
+include ':flutter_module_john'
+project(':flutter_module_john').projectDir = new File('../flutter_module_john')
