@@ -6,8 +6,10 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.native_project_android.databinding.ActivityMainBinding;
+import com.idlefish.flutterboost.FlutterBoost;
+import com.idlefish.flutterboost.FlutterBoostRouteOptions;
 
-import io.flutter.embedding.android.FlutterFragment;
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,16 +29,43 @@ public class MainActivity extends AppCompatActivity {
         binding.btnTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FlutterFragment flutterFragment = FlutterFragment.withNewEngine()
-                        .initialRoute("{name:'devio',dataList:['aa','bb','bb']}")
-                        .build();
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.ll_someContainer, flutterFragment)
-                        .commit();
+//                FlutterFragment flutterFragment = FlutterFragment.withNewEngine()
+//                        .initialRoute("{name:'devio',dataList:['aa','bb','bb']}")
+//                        .build();
+//                getSupportFragmentManager()
+//                        .beginTransaction()
+//                        .replace(R.id.ll_someContainer, flutterFragment)
+//                        .commit();
 
             }
         });
+
+        binding.btnFlutterMainPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FlutterBoostRouteOptions options = new FlutterBoostRouteOptions.Builder()
+                        .pageName("mainPage")
+                        .arguments(new HashMap<String, Object>())
+                        .requestCode(100)
+                        .build();
+                FlutterBoost.instance().open(options);
+            }
+        });
+
+        binding.btnFlutterSimplePage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HashMap<String, Object> params = new HashMap<>();
+                params.put("data", "hello");
+                FlutterBoostRouteOptions options = new FlutterBoostRouteOptions.Builder()
+                        .pageName("simplePage")
+                        .arguments(params)
+                        .requestCode(101)
+                        .build();
+                FlutterBoost.instance().open(options);
+            }
+        });
+
     }
 
     /**

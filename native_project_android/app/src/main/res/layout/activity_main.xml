@@ -17,10 +17,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-     <LinearLayout
-         android:id="@+id/ll_someContainer"
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-         android:orientation="vertical"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_flutter_MainPage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="跳转flutter-MainPage"
+        app:layout_constraintTop_toBottomOf="@+id/btn_test" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_flutter_SimplePage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="跳转flutter-SimplePage"
+        app:layout_constraintTop_toBottomOf="@+id/btn_flutter_MainPage" />
+
+    <!--    <LinearLayout
+            android:id="@+id/ll_someContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"/>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
